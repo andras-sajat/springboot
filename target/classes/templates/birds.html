@@ -1,7 +1,6 @@
 <!DOCTYPE HTML>
 
-<html ng-app="app"
-	  xmlns="http://www.w3.org/1999/xhtml"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>	  
 
@@ -9,7 +8,7 @@
 	<title>Thymeleaf-ed birds</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
-<body ng-controller="AppController">
+<body>
 
 
 <H1>Birds</H1>
@@ -18,6 +17,7 @@
 	<div>
 		<b th:text="${b.id}">ID</b> -
 		<span th:text="${b.birdName}">Bird Name</span>
+		<span th:text="${b.birdSize}">Bird Size</span>
 	</div>
 </div>
  
