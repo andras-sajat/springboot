@@ -1,4 +1,4 @@
-package com.andrastoth.mavenfirsttry;
+package andras.springboot;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

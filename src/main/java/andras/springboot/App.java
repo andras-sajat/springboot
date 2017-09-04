@@ -1,4 +1,4 @@
-package com.andrastoth.mavenfirsttry;
+package andras.springboot;
 
 import java.util.Arrays;
 import org.springframework.boot.CommandLineRunner;

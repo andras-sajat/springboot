@@ -1,7 +1,7 @@
-package com.andrastoth.mavenfirsttry;
-
+package andras.springboot;
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
@@ -9,6 +9,9 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceProcessor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RepositoryRestResource
 interface BirdRepository extends JpaRepository <Bird, Long> {
@@ -26,4 +29,16 @@ class BirdResourceProcessor implements ResourceProcessor<Resource<Bird>>{
 		return reservationResource;
 	}
 	
+}
+
+@Controller
+class BirdMvcController{
+	@RequestMapping("/birds.html")
+	String birds (Model model) {
+		model.addAttribute("birds", this.birdRepository.findAll());
+		return "birds";
+	}
+	
+	@Autowired
+	private BirdRepository birdRepository;
 }
