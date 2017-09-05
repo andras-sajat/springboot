@@ -2,7 +2,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	  xmlns:th="http://www.thymeleaf.org">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>	  
+<link rel="stylesheet" type="text/css" media="all" th:href="@{/css/birds.css}" />
 
 <head>
 	<title>Thymeleaf-ed birds</title>
@@ -13,11 +13,11 @@
 
 <H1>Birds</H1>
  
-<div th:each="b: ${birds}">
-	<div>
-		<b th:text="${b.id}">ID</b> -
-		<span th:text="${b.birdName}">Bird Name</span>
-		<span th:text="${b.birdSize}">Bird Size</span>
+<div th:each="b, iterStat: ${birds}" th:class="${iterStat.odd}? 'odd'">
+	<div th:object="${b}">
+		<b th:text="*{id}">ID</b> -
+		<span th:text="*{birdName}">Bird Name</span>
+		<span th:if="*{id==3}" th:text="*{birdSize}">Bird Size</span>
 	</div>
 </div>
  
